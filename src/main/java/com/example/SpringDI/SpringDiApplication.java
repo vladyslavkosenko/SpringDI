@@ -1,16 +1,15 @@
 package com.example.SpringDI;
 
 import com.example.project.Calculator;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-@SpringBootApplication
 public class SpringDiApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringDiApplication.class, args);
-        Calculator c = new Calculator();
-        c.calculation();
+        BeanFactory beanFactory = new ClassPathXmlApplicationContext("bean-factory.xml");
+        Calculator calculator = (Calculator) beanFactory.getBean("calculator");
+        calculator.calculation();
     }
 
 }
