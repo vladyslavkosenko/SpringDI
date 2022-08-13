@@ -1,5 +1,8 @@
 package com.example.project;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Calculator {
     MinusService minusService = new MinusService();
     PlusService plusService = new PlusService();
