@@ -1,16 +1,18 @@
 package com.example.SpringDI;
 
 import com.example.project.Calculator;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-@SpringBootApplication
 public class SpringDiApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringDiApplication.class, args);
-        Calculator c = new Calculator();
-        c.calculation();
+        ApplicationContext context =
+                new AnnotationConfigApplicationContext("com/example/");
+
+        Calculator calculator = context.getBean(Calculator.class);
+        calculator.calculation();
+
     }
 
 }
