@@ -10,6 +10,7 @@ public class SpringDiApplication {
         BeanFactory beanFactory = new ClassPathXmlApplicationContext("bean-factory.xml");
         Calculator calculator = (Calculator) beanFactory.getBean("calculator");
         calculator.calculation();
+
     }
 
 }
